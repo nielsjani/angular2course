@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['contacts.component.css']
 })
 export class ContactsAppComponent {
-  title = 'Angular 2 Master Class setup works!';
+  title = 'Ik zit naast Sander (en nu ook naast Dieter Van Peer)';
+
+  pokemon(pokemon1: string, pokemon2: string): string {
+    return `${pokemon1} ${pokemon2}`;
+  }
 }
