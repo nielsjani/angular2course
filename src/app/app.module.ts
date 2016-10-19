@@ -7,11 +7,13 @@ import { ContactsListComponent } from './contacts-list/contacts-list.component';
 import { ContactsDetailsComponent } from './contacts-details/contacts-details.component';
 import { ContactsService } from './contacts.service';
 import {ContactsAppRoutes} from './app.routes';
+import {HttpModule} from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @NgModule({
   declarations: [ContactsAppComponent, ContactsHeaderComponent, ContactsListComponent, ContactsDetailsComponent],
   providers: [ContactsService],
-  imports: [BrowserModule, RouterModule.forRoot(ContactsAppRoutes)],
+  imports: [BrowserModule, RouterModule.forRoot(ContactsAppRoutes), HttpModule],
   bootstrap: [ContactsAppComponent]
 })
 export class ContactsModule {
