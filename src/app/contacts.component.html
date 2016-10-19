@@ -1,8 +1,9 @@
 <trm-contacts-header></trm-contacts-header>
 
-<h1>
-  {{title}}
-</h1>
-
-<h2>{{pokemon('SquirterGirl', 'Agumon')}}</h2>
+<ul class="collection"  *ngFor="let contact of contacts">
+  <li class="collection-item avatar">
+    <img [src]="contact.image" alt="" class="circle">
+    <span class="title">{{contact.name}}</span>
+  </li>
+</ul>
 
