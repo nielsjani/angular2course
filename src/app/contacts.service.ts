@@ -24,4 +24,8 @@ export class ContactsService {
       .map(data => data.item)
       ;
   }
+
+  updateContact(contact:Contact) {
+     return this.http.put(this.API_ENDPOINT + "/api/contacts/" + contact.id, contact);
+  }
 }

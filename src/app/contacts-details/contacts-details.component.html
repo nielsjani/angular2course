@@ -44,6 +44,9 @@
       </div>
       <div class="card-action">
         <a class="btn" [routerLink]="['/']">Go Back</a>
+        <a *ngIf="contact" [routerLink]="['/marsupilami/', contact.id, 'edit']">
+          Edit!
+        </a>
       </div>
     </div>
   </div>
