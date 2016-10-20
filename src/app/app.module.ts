@@ -13,8 +13,13 @@ import {FormsModule} from '@angular/forms';
 import 'rxjs/add/operator/map';
 
 @NgModule({
-  declarations: [ContactsAppComponent, ContactsHeaderComponent, ContactsListComponent, ContactsDetailsComponent, ContactsEditorComponent],
-  providers: [ContactsService],
+  declarations: [
+    ContactsAppComponent,
+    ContactsHeaderComponent,
+    ContactsListComponent,
+    ContactsDetailsComponent,
+    ContactsEditorComponent],
+  providers: [ContactsService, {provide: "apiEndpoint", useValue: "http://localhost:4201"}],
   imports: [
     BrowserModule,
     RouterModule.forRoot(ContactsAppRoutes),
