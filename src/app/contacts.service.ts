@@ -28,7 +28,7 @@ export class ContactsService {
      return this.http.put(this.apiEndpoint + "/api/contacts/" + contact.id, contact);
   }
 
-  search(term: string) {
+  rawSearch(term: string) {
     return this.http.get(this.apiEndpoint + "/api/search?text=" + term)
       .map(resp => resp.json())
       .map(data => data.items);
