@@ -7,10 +7,10 @@
             <i class="material-icons prefix">account_circle</i>
             <input #name="ngModel" id="name" name="name" class="validate" ngModel required minlength="3" [ngClass]="{'invalid': contactForm.invalid && !contactForm.pristine}">
             <label class="active" for="name">Name</label>
-            <div *ngIf="name.errors?.required && !contactForm.pristine"  [ngClass]="{'invalid': contactForm.invalid && !contactForm.pristine}">
+            <div *ngIf="name.errors?.required && !contactForm.pristine"  class="error-msg">
               THIS FIELD IS REQUIRED!!!!!
             </div>
-            <div *ngIf="name.errors?.minlength && !contactForm.pristine"  [ngClass]="{'invalid': contactForm.invalid && !contactForm.pristine}">
+            <div *ngIf="name.errors?.minlength && !contactForm.pristine"  class="error-msg">
               At least three characters pl0x
             </div>
           </div>
