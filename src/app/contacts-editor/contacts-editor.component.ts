@@ -6,8 +6,7 @@ import {Contact} from "../models/contact";
 
 @Component({
   selector: 'trm-contacts-editor',
-  templateUrl: './contacts-editor.component.html',
-  styleUrls: ['./contacts-editor.component.css']
+  templateUrl: './contacts-editor.component.html'
 })
 export class ContactsEditorComponent implements OnInit {
   private contact;
