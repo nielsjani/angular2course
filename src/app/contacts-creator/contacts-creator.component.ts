@@ -15,8 +15,7 @@ export class ContactsCreatorComponent implements OnInit {
 
   submit(formValue) {
     this.contactsService.addContact(formValue)
-      .subscribe(() => this.router.navigateByUrl("/"));
-      ;
+      .subscribe(response => this.router.navigateByUrl("/marsupilami/" +response.id));
   }
 
 }

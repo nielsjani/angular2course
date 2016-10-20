@@ -44,6 +44,9 @@ export class ContactsService {
   }
 
   addContact(contact:Contact) {
-    return this.http.post(this.apiEndpoint + "/api/contacts", contact);
+    return this.http.post(this.apiEndpoint + "/api/contacts", contact)
+      .map(resp => resp.json())
+      .map(data => data.item)
+      ;
   }
 }
