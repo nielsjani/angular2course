@@ -9,7 +9,7 @@
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">account_circle</i>
-            <input id="name" name="name" type="text" class="validate" [(ngModel)]="contact.name">
+            <input id="name" name="name" type="text" class="validate" [(ngModel)]="contact.name" (ngModelChange)="changeName($event)">
             <label class="active" for="name">Name</label>
           </div>
         </div>

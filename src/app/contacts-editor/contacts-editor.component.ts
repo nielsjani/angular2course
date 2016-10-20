@@ -24,6 +24,10 @@ export class ContactsEditorComponent implements OnInit {
       });
   }
 
+  changeName($event) {
+    this.eventBus.emit("appTitleChange", "Editing " + $event);
+  }
+
   save(contact: Contact){
     this.contactsService.updateContact(contact)
       .subscribe(response => this.router.navigateByUrl("/marsupilami/" + contact.id));
