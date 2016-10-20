@@ -43,8 +43,8 @@
         </fieldset>
       </div>
       <div class="card-action">
-        <a class="btn" [routerLink]="['/']">Go Back</a>
-        <a *ngIf="contact" [routerLink]="['/marsupilami/', contact.id, 'edit']">
+        <a class="btn" (click)="cancel.emit(contact)">Go Back</a>
+        <a *ngIf="contact" (click)="edit.emit(contact)">
           Edit!
         </a>
       </div>

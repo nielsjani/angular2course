@@ -4,7 +4,8 @@ import {RouterModule} from '@angular/router';
 import { ContactsAppComponent } from './contacts.component';
 import { ContactsHeaderComponent } from './contacts-header/contacts-header.component';
 import { ContactsListComponent } from './contacts-list/contacts-list.component';
-import { ContactsDetailsComponent } from './contacts-details/contacts-details.component';
+import { ContactsDetailsViewComponent } from './contacts-details-view/contacts-details-view.component';
+import { ContactsDetailsComponent } from './contact-details/contacts-details.component';
 import { ContactsEditorComponent } from './contacts-editor/contacts-editor.component';
 import {ContactsAppRoutes} from './app.routes';
 import {HttpModule} from '@angular/http';
@@ -21,6 +22,7 @@ import "rxjs/add/operator/merge";
     ContactsAppComponent,
     ContactsHeaderComponent,
     ContactsListComponent,
+    ContactsDetailsViewComponent,
     ContactsDetailsComponent,
     ContactsEditorComponent],
   providers: APP_PROVIDERS,
