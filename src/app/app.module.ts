@@ -6,10 +6,10 @@ import { ContactsHeaderComponent } from './contacts-header/contacts-header.compo
 import { ContactsListComponent } from './contacts-list/contacts-list.component';
 import { ContactsDetailsComponent } from './contacts-details/contacts-details.component';
 import { ContactsEditorComponent } from './contacts-editor/contacts-editor.component';
-import { ContactsService } from './contacts.service';
 import {ContactsAppRoutes} from './app.routes';
 import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
+import {APP_PROVIDERS} from './app.providers'
 import 'rxjs/add/operator/map';
 
 @NgModule({
@@ -19,7 +19,7 @@ import 'rxjs/add/operator/map';
     ContactsListComponent,
     ContactsDetailsComponent,
     ContactsEditorComponent],
-  providers: [ContactsService, {provide: "apiEndpoint", useValue: "http://localhost:4201"}],
+  providers: APP_PROVIDERS,
   imports: [
     BrowserModule,
     RouterModule.forRoot(ContactsAppRoutes),

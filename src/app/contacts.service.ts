@@ -2,11 +2,12 @@ import { Injectable, Inject } from '@angular/core';
 import {CONTACT_DATA} from './data/contact-data'
 import {Contact} from "./models/contact";
 import {Http} from '@angular/http';
+import {API_ENDPOINT} from "./app.tokens";
 
 @Injectable()
 export class ContactsService {
 
-  constructor(private http: Http, @Inject('apiEndpoint') private apiEndpoint) {
+  constructor(private http: Http, @Inject(API_ENDPOINT) private apiEndpoint) {
   }
 
   getContacts() {
@@ -25,5 +26,11 @@ export class ContactsService {
 
   updateContact(contact:Contact) {
      return this.http.put(this.apiEndpoint + "/api/contacts/" + contact.id, contact);
+  }
+
+  search(term: string) {
+    return this.http.get(this.apiEndpoint + "/api/search?text=" + term)
+      .map(resp => resp.json())
+      .map(data => data.items);
   }
 }
