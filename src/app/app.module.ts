@@ -11,6 +11,8 @@ import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {APP_PROVIDERS} from './app.providers'
 import 'rxjs/add/operator/map';
+import "rxjs/add/operator/debounceTime";
+import "rxjs/add/operator/distinctUntilChanged";
 
 @NgModule({
   declarations: [
