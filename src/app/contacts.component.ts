@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title} from '@angular/platform-browser';
 import {EventBusService} from './app.eventbus';
 
 @Component({
@@ -9,10 +10,13 @@ import {EventBusService} from './app.eventbus';
 export class ContactsAppComponent {
   private title;
 
-  constructor(private eventBusService: EventBusService) {}
+  constructor(private eventBusService: EventBusService, private titleService: Title) {}
 
   ngOnInit () {
     this.eventBusService.observe('appTitleChange')
-      .subscribe(title => this.title = title);
+      .subscribe(title => {
+        this.titleService.setTitle(title);
+        this.title = title;
+      });
   }
 }
