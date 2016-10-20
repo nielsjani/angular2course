@@ -3,6 +3,8 @@ import {CONTACT_DATA} from './data/contact-data'
 import {Contact} from "./models/contact";
 import {Http} from '@angular/http';
 import {API_ENDPOINT} from "./app.tokens";
+import {Subject} from "rxjs/Subject";
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class ContactsService {
@@ -32,5 +34,12 @@ export class ContactsService {
     return this.http.get(this.apiEndpoint + "/api/search?text=" + term)
       .map(resp => resp.json())
       .map(data => data.items);
+  }
+
+  search(observable: Observable<string>) {
+    return observable
+      .debounceTime(400)
+      .distinctUntilChanged() //Observable<String>
+      .switchMap(term => this.rawSearch(term)); // Observable<Array<Contact>>
   }
 }
