@@ -8,5 +8,5 @@ import {Contact} from "../models/contact";
 export class ContactsDetailsComponent {
   @Input() private contact:Contact;
   @Output() private edit = new EventEmitter<Contact>();
-  @Output() private cancel = new EventEmitter<Contact>();
+  @Output() private cancel = new EventEmitter<void>();
 }
