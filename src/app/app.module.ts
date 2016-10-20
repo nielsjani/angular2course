@@ -7,6 +7,7 @@ import { ContactsListComponent } from './contacts-list/contacts-list.component';
 import { ContactsDetailsViewComponent } from './contacts-details-view/contacts-details-view.component';
 import { ContactsDetailsComponent } from './contact-details/contacts-details.component';
 import { ContactsEditorComponent } from './contacts-editor/contacts-editor.component';
+import { ContactsCreatorComponent } from './contacts-creator/contacts-creator.component';
 import {ContactsAppRoutes} from './app.routes';
 import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
@@ -25,7 +26,9 @@ import "rxjs/add/operator/filter";
     ContactsListComponent,
     ContactsDetailsViewComponent,
     ContactsDetailsComponent,
-    ContactsEditorComponent],
+    ContactsEditorComponent,
+    ContactsCreatorComponent
+  ],
   providers: APP_PROVIDERS,
   imports: [
     BrowserModule,

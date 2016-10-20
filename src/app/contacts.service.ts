@@ -9,7 +9,7 @@ import {Observable} from "rxjs/Observable";
 @Injectable()
 export class ContactsService {
 
-  constructor(private http: Http, @Inject(API_ENDPOINT) private apiEndpoint) {
+  constructor(private http:Http, @Inject(API_ENDPOINT) private apiEndpoint) {
   }
 
   getContacts() {
@@ -19,7 +19,7 @@ export class ContactsService {
       ;
   }
 
-  getContact(id: number) {
+  getContact(id:number) {
     return this.http.get(this.apiEndpoint + "/api/contacts/" + id)
       .map(resp => resp.json())
       .map(data => data.item)
@@ -27,19 +27,23 @@ export class ContactsService {
   }
 
   updateContact(contact:Contact) {
-     return this.http.put(this.apiEndpoint + "/api/contacts/" + contact.id, contact);
+    return this.http.put(this.apiEndpoint + "/api/contacts/" + contact.id, contact);
   }
 
-  rawSearch(term: string) {
+  rawSearch(term:string) {
     return this.http.get(this.apiEndpoint + "/api/search?text=" + term)
       .map(resp => resp.json())
       .map(data => data.items);
   }
 
-  search(observable: Observable<string>) {
+  search(observable:Observable<string>) {
     return observable
       .debounceTime(400)
       .distinctUntilChanged() //Observable<String>
       .switchMap(term => this.rawSearch(term)); // Observable<Array<Contact>>
+  }
+
+  addContact(contact:Contact) {
+    return this.http.post(this.apiEndpoint + "/api/contacts", contact);
   }
 }
