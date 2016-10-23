@@ -2,26 +2,45 @@
   <form class="col s12 m7" #contactForm="ngForm" (ngSubmit)="submit(contactForm.value)" novalidate>
     <div class="card">
       <div class="card-content grey-text text-darken-4">
+
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">account_circle</i>
-            <input #name="ngModel" id="name" name="name" class="validate" ngModel required minlength="3" [ngClass]="{'invalid': contactForm.invalid && !contactForm.pristine}">
+            <input #name="ngModel"
+                   id="name"
+                   name="name"
+                   class="validate"
+                   ngModel
+                   required
+                   minlength="3"
+                   [ngClass]="{'invalid': name.errors && !name.pristine}">
             <label class="active" for="name">Name</label>
-            <div *ngIf="name.errors?.required && !contactForm.pristine"  class="error-msg">
+            <div *ngIf="name.errors?.required && !name.pristine" class="error-msg">
               THIS FIELD IS REQUIRED!!!!!
             </div>
-            <div *ngIf="name.errors?.minlength && !contactForm.pristine"  class="error-msg">
+            <div *ngIf="name.errors?.minlength && !name.pristine" class="error-msg">
               At least three characters pl0x
             </div>
           </div>
         </div>
+
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">email</i>
-            <input id="email" name="email" class="validate" ngModel>
+            <input #email="ngModel"
+                   id="email"
+                   name="email"
+                   class="validate"
+                   ngModel
+                   validateEmail
+                   [ngClass]="{'invalid': email.errors && !email.pristine}">
             <label class="active" for="email">Email</label>
+            <div *ngIf="email.errors?.validateEmail && !email.pristine" class="error-msg">
+              Please fill in a correctly formatted email. KTHXBAI
+            </div>
           </div>
         </div>
+
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">phone</i>
@@ -36,6 +55,7 @@
             <label class="active" for="birthday">Birthday</label>
           </div>
         </div>
+
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">public</i>
@@ -43,6 +63,7 @@
             <label class="active" for="website">Website</label>
           </div>
         </div>
+
         <fieldset ngModelGroup="address">
           <legend><i class="material-icons prefix">location_city</i> Address</legend>
 
@@ -52,6 +73,7 @@
               <label class="active" for="street">Street</label>
             </div>
           </div>
+
           <div class="row">
             <div class="input-field col s12">
               <input id="zip" type="text" name="zip" class="validate" ngModel>
@@ -65,6 +87,7 @@
               <label class="active" for="city">City</label>
             </div>
           </div>
+
           <div class="row">
             <div class="input-field col s12">
               <input id="country" type="text" name="country" class="validate" ngModel>
@@ -73,7 +96,8 @@
           </div>
         </fieldset>
       </div>
-      <div class="card-action">
+
+     <div class="card-action">
         <a class="btn" [routerLink]="['/']">Cancel</a>
         <button type="submit" class="btn" [disabled]="contactForm.invalid">Save</button>
       </div>
