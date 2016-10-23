@@ -11,7 +11,7 @@ import { ContactsEditorComponent } from './contacts-editor/contacts-editor.compo
 import { ContactsCreatorComponent } from './contacts-creator/contacts-creator.component';
 import {ContactsAppRoutes} from './app.routes';
 import {HttpModule} from '@angular/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {APP_PROVIDERS} from './app.providers'
 import 'rxjs/add/operator/map';
 import "rxjs/add/operator/debounceTime";
@@ -36,7 +36,8 @@ import "rxjs/add/operator/filter";
     BrowserModule,
     RouterModule.forRoot(ContactsAppRoutes),
     HttpModule,
-    FormsModule],
+    FormsModule,
+    ReactiveFormsModule],
   bootstrap: [ContactsAppComponent]
 })
 export class ContactsModule {

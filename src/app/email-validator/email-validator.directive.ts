@@ -18,8 +18,7 @@ export class EmailValidator {
 
 }
 
-function validateEmail(c:FormControl) {
-  console.log("lets validate some emals.");
+export function validateEmail(c:FormControl) {
   const VALID_EMAIL = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
   if (!VALID_EMAIL.test(c.value)) {
     return {
