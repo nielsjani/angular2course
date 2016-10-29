@@ -33,6 +33,9 @@
             <div *ngIf="emailField.errors?.validateEmail && !emailField.pristine" class="error-msg">
               Please fill in a correctly formatted email. KTHXBAI
             </div>
+            <div *ngIf="emailField.errors?.checkEmailAvailability && !emailField.pristine" class="error-msg">
+              Email already taken. Sorry
+            </div>
           </div>
         </div>
 

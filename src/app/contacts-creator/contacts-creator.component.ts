@@ -3,6 +3,7 @@ import {ContactsService} from "../contacts.service"
 import {Router} from '@angular/router';
 import {FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {validateEmail} from '../email-validator/email-validator.directive';
+import {checkEmailAvailability} from '../email-availability-validator/email-availability-validator.directive';
 
 @Component({
   selector: 'trm-contacts-creator',
@@ -19,7 +20,7 @@ export class ContactsCreatorComponent implements OnInit {
 
   ngOnInit() {
     this.nameField = new FormControl('', [Validators.required, Validators.minLength(3)]);
-    this.emailField = new FormControl('', validateEmail);
+    this.emailField = new FormControl('', validateEmail, checkEmailAvailability(this.contactsService));
 
     this.form = this.formBuilder.group({
       name: this.nameField,

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {RouterModule} from '@angular/router';
 import { EmailValidator } from './email-validator/email-validator.directive';
+import { EmailAvailabilityValidatorDirective } from './email-availability-validator/email-availability-validator.directive';
 import { ContactsAppComponent } from './contacts.component';
 import { ContactsHeaderComponent } from './contacts-header/contacts-header.component';
 import { ContactsListComponent } from './contacts-list/contacts-list.component';
@@ -29,7 +30,8 @@ import "rxjs/add/operator/filter";
     ContactsDetailsComponent,
     ContactsEditorComponent,
     ContactsCreatorComponent,
-    EmailValidator
+    EmailValidator,
+    EmailAvailabilityValidatorDirective
   ],
   providers: APP_PROVIDERS,
   imports: [

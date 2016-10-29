@@ -49,4 +49,10 @@ export class ContactsService {
       .map(data => data.item)
       ;
   }
+
+  isEmailAvailable(email:string) {
+    return this.http.get(this.apiEndpoint + "/api/check-email?email=" + email)
+      .map(resp => resp.json())
+      ;
+  }
 }
