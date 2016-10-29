@@ -11,18 +11,16 @@ import {EventBusService} from "../app.eventbus";
 export class ContactsDetailsViewComponent implements OnInit {
   private contact:Contact;
 
-  constructor(private contactsService:ContactsService, private route:ActivatedRoute, private router:Router, private eventBus:EventBusService) {
+  constructor(private route:ActivatedRoute, private router:Router, private eventBus:EventBusService) {
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      const contactId:number = parseInt(params['id']);
-      this.contactsService.getContact(contactId)
+      this.route.data
+        .map(data => data['contact'])
         .subscribe(contact => {
           this.contact = contact;
           this.eventBus.emit("appTitleChange", "Looking at detail of " + contact.name);
         });
-    })
   }
 
   navigateToEditor($event) {

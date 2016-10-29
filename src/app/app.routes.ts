@@ -5,6 +5,7 @@ import { ContactsEditorComponent } from './contacts-editor/contacts-editor.compo
 import { ContactsCreatorComponent } from './contacts-creator/contacts-creator.component';
 import { ContactsDashboardComponent } from './contacts-dashboard/contacts-dashboard.component';
 import { AboutComponent } from './about/about.component';
+import { ContactsResolver } from './shared/contacts.resolver';
 import { CONFIRM_NAVIGATION_GUARD } from './app.tokens';
 
 export const ContactsAppRoutes:Routes = [
@@ -14,9 +15,17 @@ export const ContactsAppRoutes:Routes = [
     component: ContactsDashboardComponent,
     children: [
       {path: '', redirectTo: 'marsupilami/0'}, //default
-      {path: 'marsupilami/:id', component: ContactsDetailsViewComponent},
+      {path: 'marsupilami/:id',
+        component: ContactsDetailsViewComponent,
+        resolve: {
+          contact: ContactsResolver
+        }
+      },
       {path: 'marsupilami/:id/edit',
         component: ContactsEditorComponent,
+        resolve: {
+          contact: ContactsResolver
+        },
         canDeactivate: [CONFIRM_NAVIGATION_GUARD]
       },
     ]
