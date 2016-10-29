@@ -10,6 +10,8 @@ import { ContactsDetailsViewComponent } from './contacts-details-view/contacts-d
 import { ContactsDetailsComponent } from './contact-details/contacts-details.component';
 import { ContactsEditorComponent } from './contacts-editor/contacts-editor.component';
 import { ContactsCreatorComponent } from './contacts-creator/contacts-creator.component';
+import { AboutComponent } from './about/about.component';
+import { ContactsDashboardComponent } from './contacts-dashboard/contacts-dashboard.component';
 import {ContactsAppRoutes} from './app.routes';
 import {HttpModule} from '@angular/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -30,6 +32,8 @@ import "rxjs/add/operator/filter";
     ContactsDetailsComponent,
     ContactsEditorComponent,
     ContactsCreatorComponent,
+    ContactsDashboardComponent,
+    AboutComponent,
     EmailValidator,
     EmailAvailabilityValidatorDirective
   ],

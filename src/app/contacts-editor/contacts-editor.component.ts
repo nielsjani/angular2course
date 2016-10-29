@@ -11,6 +11,7 @@ import {EventBusService} from "../app.eventbus";
 })
 export class ContactsEditorComponent implements OnInit {
   private contact;
+  warnOnClosing= true;
 
   constructor(private contactsService: ContactsService, private route: ActivatedRoute, private router: Router, private eventBus: EventBusService) { }
 
@@ -29,6 +30,7 @@ export class ContactsEditorComponent implements OnInit {
   }
 
   save(contact: Contact){
+    this.warnOnClosing = false;
     this.contactsService.updateContact(contact)
       .subscribe(response => this.router.navigateByUrl("/marsupilami/" + contact.id));
   }
